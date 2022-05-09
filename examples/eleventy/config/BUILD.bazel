@@ -1,0 +1,27 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+
+exports_files(["eleventy.js"])
+
+ts_project(
+    name = "simple_config",
+    extends = "//examples:tsconfig.json",
+    tsconfig = {
+        "compilerOptions": {
+            "module": "CommonJS",
+        },
+    },
+    srcs = ["simple_config.ts"],
+    visibility = ["//examples/eleventy:__subpackages__"]
+)
+
+ts_project(
+    name = "advanced_config",
+    extends = "//examples:tsconfig.json",
+    tsconfig = {
+        "compilerOptions": {
+            "module": "CommonJS",
+        },
+    },
+    srcs = ["advanced_config.ts", "foo.ts"],
+    visibility = ["//examples/eleventy:__subpackages__"]
+)

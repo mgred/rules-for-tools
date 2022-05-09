@@ -1,0 +1,10 @@
+load("//:index.bzl", "typedoc")
+
+typedoc(
+    name = "example",
+    data = ["foo.ts", "//examples:tsconfig.json"],
+    tsconfig = "//examples:tsconfig.json",
+    entry_points = ["foo.ts"],
+    output = "out.json",
+    json = True,
+)

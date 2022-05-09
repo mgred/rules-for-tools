@@ -1,0 +1,29 @@
+{
+  "name": "rules-for-tools",
+  "description": "Bazel rules for nodejs tools",
+  "version": "0.0.0-PLACEHOLDER",
+  "repository": {
+    "url": "https://github.com/mgred/rules-for-tools.git",
+    "type": "git"
+  },
+  "files": [
+    "*.bzl"
+  ],
+  "keywords": [
+    "bazel",
+    "eleventy",
+    "typedoc"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "@bazel/typescript": "5.4.2",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
+  },
+  "scripts": {
+    "build": "bazel build //...",
+    "publish": "bazel run --config=release -- //:pkg.publish --access public",
+    "test": "bazel test //..."
+  }
+}

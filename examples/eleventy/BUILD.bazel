@@ -1,0 +1,24 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+load("//:index.bzl", "eleventy")
+
+eleventy(
+    name = "example",
+    output = "example_dist",
+    srcs = glob(["*.md"]),
+    config = "//examples/eleventy/config:eleventy.js",
+)
+
+eleventy(
+    name = "example2",
+    output = "example2_dist",
+    srcs = glob(["*.md"]),
+    config = "//examples/eleventy/config:simple_config",
+)
+
+eleventy(
+    name = "example3",
+    output = "example3_dist",
+    srcs = glob(["*.md"]),
+    config = "//examples/eleventy/config:advanced_config.js",
+    data = ["//examples/eleventy/config:advanced_config"],
+)

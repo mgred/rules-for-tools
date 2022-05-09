@@ -1,0 +1,5 @@
+build --disk_cache=~/.cache/bazel-disk-cache
+build --enable_platform_specific_config
+build --symlink_prefix=dist/
+
+build:release --stamp --workspace_status_command=$(pwd)/stamp_vars.sh

@@ -1,0 +1,22 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+
+filegroup(
+    name = "bzl_lib",
+    srcs = [
+        "eleventy.bzl",
+        "index.bzl",
+        "typedoc.bzl",
+    ],
+)
+
+pkg_npm(
+    name = "pkg",
+    package_name = "rules-for-tools",
+    srcs = ["package.json"],
+    substitutions = {"0.0.0-PLACEHOLDER": "{PACKAGE_VERSION}"},
+    deps = [
+        "LICENSE",
+        "README.md",
+        ":bzl_lib",
+    ],
+)
